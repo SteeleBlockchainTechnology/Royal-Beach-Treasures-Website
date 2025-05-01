@@ -9,7 +9,7 @@ export function Header() {
       {/* Logo Section - Ensure items-center for vertical alignment */}
       <Link
         href="/"
-        className="flex items-center gap-2 text-lg font-semibold" // Ensure items-center for vertical centering
+        className="flex items-center gap-2 text-lg font-semibold mr-auto" // Added mr-auto to push nav right
       >
         {/* SVG Icon */}
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 text-primary flex-shrink-0"> {/* Added flex-shrink-0 */}
@@ -19,9 +19,9 @@ export function Header() {
         <span className="font-bubblegum-sans text-xl sm:text-2xl tracking-wide whitespace-nowrap">Royal Beach Treasures</span> {/* Added whitespace-nowrap */}
       </Link>
 
-      {/* Desktop Navigation - Centered */}
-      {/* Use flex-1 to allow justify-center to work correctly */}
-      <nav className="hidden flex-1 md:flex md:justify-center md:items-center md:gap-5 lg:gap-6"> {/* Added flex-1 and justify-center */}
+      {/* Desktop Navigation - Right Aligned */}
+      {/* Removed flex-1 and changed md:justify-center to md:justify-end */}
+      <nav className="hidden md:flex md:items-center md:gap-5 lg:gap-6">
         <Link
           href="/"
           className="text-foreground transition-colors hover:text-foreground/80"
@@ -55,8 +55,8 @@ export function Header() {
       </nav>
 
       {/* Right Side Elements (Placeholder for Cart) & Mobile Menu Trigger */}
-      {/* Use ml-auto on mobile trigger container if needed, or ensure flex layout handles spacing */}
-      <div className="flex items-center gap-4 ml-auto md:ml-0"> {/* Added ml-auto for mobile, md:ml-0 for desktop */}
+      {/* Use ml-auto to push this container to the right on mobile */}
+      <div className="flex items-center gap-4 ml-4 md:ml-6"> {/* Use margin-left to space from nav */}
          {/* Placeholder for future Cart functionality */}
         {/* <Button variant="ghost" size="icon" className="rounded-full hidden md:inline-flex">
           <ShoppingCart className="h-5 w-5" />
