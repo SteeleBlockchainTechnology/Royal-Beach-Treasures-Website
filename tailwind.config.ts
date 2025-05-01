@@ -11,7 +11,8 @@ export default {
   	extend: {
         fontFamily: {
             'lato': ['var(--font-lato)', 'sans-serif'],
-            'bubblegum-sans': ['var(--font-bubblegum-sans)', 'cursive'],
+            // Use the new variable for Baloo 2
+            'bubblegum-sans': ['var(--font-baloo-2)', 'cursive'],
         },
   		colors: {
   			background: 'hsl(var(--background))',
