@@ -12,9 +12,9 @@ const lato = Lato({
   weight: ['400', '700']
 });
 
-// Path relative to the current directory (src/app), assuming fonts are in src/app/fonts
+// Path relative to the current file (src/app/layout.tsx), assuming fonts are in src/fonts
 const bubblegumSans = localFont({
-  src: './fonts/BubblegumSans-Regular.otf', // Adjusted path
+  src: '../fonts/BubblegumSans-Regular.otf', // Corrected path relative to src/app/layout.tsx
   variable: '--font-bubblegum-sans',
   display: 'swap',
 })
