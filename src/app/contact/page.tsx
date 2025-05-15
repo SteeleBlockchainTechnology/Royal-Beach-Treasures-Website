@@ -1,5 +1,6 @@
 "use client"; // Required for form handling
 
+import React, { useRef } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -18,6 +19,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Mail, MessageSquare, Heart } from "lucide-react";
 import Image from "next/image";
+import emailjs from '@emailjs/browser';
 
 // Define the form schema using Zod
 const formSchema = z.object({
@@ -49,17 +51,21 @@ export default function ContactPage() {
 
   // Define the submit handler
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, you'd send this data to a server/backend
-    console.log("Form submitted:", values);
-
-    // Show a success toast notification
-    toast({
-      title: "Message Sent! 🎉",
-      description: "Thanks for reaching out! We'll get back to you soon.",
-    });
-
-    // Reset the form after successful submission
-    form.reset();
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', values, 'YOUR_USER_ID')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        toast({
+          title: 'Message Sent! 🎉',
+          description: "Thanks for reaching out! We'll get back to you soon.",
+        });
+        form.reset();
+      }, (error) => {
+        console.log('FAILED...', error);
+        toast({
+          title: 'Message Failed! 😞',
+          description: "Sorry, there was an error sending your message.",
+        });
+      });
   }
 
   return (
@@ -77,7 +83,7 @@ export default function ContactPage() {
             </p>
             <p className="text-base text-muted-foreground leading-relaxed bg-accent/30 p-4 rounded-md border border-border">
             <Mail className="inline-block w-5 h-5 mr-2 align-text-bottom"/>
-             My big brother/sister helps me read and respond to messages, so we’ll get back to you soon!
+             My family helps me read and respond to messages, so we’ll get back to you soon!
             </p>
             <div className="mt-6 pt-6 border-t border-border">
                  <div className="flex items-center gap-3 text-primary">
@@ -102,7 +108,7 @@ export default function ContactPage() {
             </div> */}
              <div className="mt-8 relative h-48 w-full opacity-80">
                 <Image
-                    src="https://picsum.photos/seed/craftsupplies/600/300"
+                    src="./sunset.jpg"
                     alt="Colorful craft supplies"
                     layout="fill"
                     objectFit="cover"
