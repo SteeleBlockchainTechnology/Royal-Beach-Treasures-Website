@@ -15,7 +15,7 @@ export default function EventPage() {
          <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
             {/* Placeholder for map or event image */}
              <Image
-                src="/images/city.jpg"
+                src="./images/city.jpg"
                 alt="Map or image of Corpus Christi Kids Market location"
                 layout="fill"
                 objectFit="cover"
