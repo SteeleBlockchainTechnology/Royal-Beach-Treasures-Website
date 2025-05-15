@@ -108,7 +108,7 @@ export default function ContactPage() {
             </div> */}
              <div className="mt-8 relative h-48 w-full opacity-80">
                 <Image
-                    src="./sunset.jpg"
+                    src="/images/sunset.jpg"
                     alt="Colorful craft supplies"
                     layout="fill"
                     objectFit="cover"

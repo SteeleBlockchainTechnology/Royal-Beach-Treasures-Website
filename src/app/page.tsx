@@ -24,7 +24,7 @@ export default function Home() {
       <section className="relative w-full h-[50vh] md:h-[70vh] bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-center px-4">
          {/* Placeholder background image - replace with actual image */}
          <Image
-            src="./beach.jpg"
+            src="/images/beach.jpg"
             alt="Lemonade-style stand with crafts"
             layout="fill"
             objectFit="cover"
